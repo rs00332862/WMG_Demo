@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'track_streaming.dart';
-import 'package:page_transition/page_transition.dart';
+//import 'package:page_transition/page_transition.dart';
 import 'country_list_screen.dart';
 import 'constant.dart';
 
@@ -11,20 +11,25 @@ class TabBarContainer extends StatefulWidget {
 
 class _TabBarContainerState extends State<TabBarContainer>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  //AnimationController _controller;
 
   int tabIndex = 1;
-  PageController _pageController;
+  //PageController _pageController;
 
   List<Widget> listScreens;
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
+    //_controller = AnimationController(vsync: this);
     super.initState();
-    _pageController = PageController();
+    //_pageController = PageController();
     listScreens = [
-      CountryListScreen(),
+      CountryListScreen(resetIndex: (){
+        setState(() {
+          tabIndex = -1;
+        });
+        print('tabIndex called');
+      },),
       TrackStreaming(),
     ];
   }

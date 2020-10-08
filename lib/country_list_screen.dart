@@ -5,6 +5,8 @@ import 'package:page_transition/page_transition.dart';
 import 'track_streaming.dart';
 
 class CountryListScreen extends StatelessWidget {
+  final Function resetIndex;
+  CountryListScreen({@required this.resetIndex});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,7 +61,11 @@ class CountryListScreen extends StatelessWidget {
           ],
         ),
         Expanded(
-          child: ListSearch(),
+          child: ListSearch(
+            resetIndex: (){
+              print("ListSearch function called");
+            },
+          ),
         )
       ],
     );
@@ -67,6 +73,8 @@ class CountryListScreen extends StatelessWidget {
 }
 
 class ListSearch extends StatefulWidget {
+  final Function resetIndex;
+  ListSearch({@required this.resetIndex});
   ListSearchState createState() => ListSearchState();
 }
 
@@ -74,9 +82,10 @@ class ListSearchState extends State<ListSearch> {
   int itemSelected = -1;
   TextEditingController _textController = TextEditingController();
 
-  buttonTapped(){
+  buttonTapped ()async{
     print('Button Tapped');
-    Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
+    await Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
+    widget.resetIndex();
   }
 
   static List<Country> countryList = [
@@ -169,8 +178,8 @@ class ListSearchState extends State<ListSearch> {
                     onTap: () {
                       setState(() {
                         itemSelected = index;
-                        buttonTapped();
                       });
+                      buttonTapped();
                     },
                   );
                 },

@@ -129,13 +129,19 @@ class _TrackStreamingState extends State<TrackStreaming> {
 
         children: [
           Padding(
-              padding: const EdgeInsets.fromLTRB(80, 20, 80, 0),
+              padding: const EdgeInsets.fromLTRB(80, 10, 80, 0),
               //child: Expanded(child: currentServiceSelection()),
               child: RaisedButton(
                 textColor: Colors.white,
                 padding: EdgeInsets.fromLTRB(80.0, 10.0, 80.0, 10.0),
                 color: kCountryListPageAppBarBackground,
-                child: Text("All Services",),
+                child: Text(
+                  "All Services",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 onPressed: () {},
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0),
