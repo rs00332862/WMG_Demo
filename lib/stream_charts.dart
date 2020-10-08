@@ -28,28 +28,36 @@ class StreamCharts extends StatelessWidget {
       padding: EdgeInsets.all(20.0),
       child: Card(
         color: kMainBackgroundColor,
-        child: Column(
-          children: [
-            Expanded(child:
-            chart.BarChart(
-              streams,
-              animate: true,
-              domainAxis: chart.OrdinalAxisSpec(
-                showAxisLine: false,
-                renderSpec: chart.SmallTickRendererSpec(
-                    minimumPaddingBetweenLabelsPx: 0,
-
-                    labelStyle: chart.TextStyleSpec(
-                      color: chart.MaterialPalette.white,
-                      fontSize: 15,
-                    )
-                ),
-              ),
-              primaryMeasureAxis: chart.NumericAxisSpec(renderSpec: chart.NoneRenderSpec()),
-
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('images/testing_dots_Bg.png',),
             ),
-            )
-          ],
+          ),
+          child: Column(
+            children: [
+              Expanded(child:
+              chart.BarChart(
+                streams,
+                animate: true,
+                domainAxis: chart.OrdinalAxisSpec(
+                  showAxisLine: false,
+                  renderSpec: chart.SmallTickRendererSpec(
+                      minimumPaddingBetweenLabelsPx: 0,
+
+                      labelStyle: chart.TextStyleSpec(
+                        color: chart.MaterialPalette.white,
+                        fontSize: 15,
+                      )
+                  ),
+                ),
+                primaryMeasureAxis: chart.NumericAxisSpec(renderSpec: chart.NoneRenderSpec()),
+
+              ),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'constant.dart';
 import 'country.dart';
+import 'package:page_transition/page_transition.dart';
+import 'track_streaming.dart';
 
 class CountryListScreen extends StatelessWidget {
   @override
@@ -71,6 +73,12 @@ class ListSearch extends StatefulWidget {
 class ListSearchState extends State<ListSearch> {
   int itemSelected = -1;
   TextEditingController _textController = TextEditingController();
+
+  buttonTapped(){
+    print('Button Tapped');
+    Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
+  }
+
   static List<Country> countryList = [
     Country(
       name: "All Countries",
@@ -161,6 +169,7 @@ class ListSearchState extends State<ListSearch> {
                     onTap: () {
                       setState(() {
                         itemSelected = index;
+                        buttonTapped();
                       });
                     },
                   );

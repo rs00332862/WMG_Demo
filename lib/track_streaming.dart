@@ -66,7 +66,7 @@ class _TrackStreamingState extends State<TrackStreaming> {
     ),
     StreamTracker(
       day: "19",
-      stream: 100,
+      stream: 800,
       barColor: chart.ColorUtil.fromDartColor(kBlueBoldText),
     ),
     StreamTracker(
@@ -94,7 +94,9 @@ class _TrackStreamingState extends State<TrackStreaming> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kMainBackgroundColor,
       appBar: AppBar(
+        backgroundColor: kMainBackgroundColor,
         leading: Image.asset('images/wmg.png'),
         centerTitle: false,
         title: Center(
@@ -124,12 +126,14 @@ class _TrackStreamingState extends State<TrackStreaming> {
         ],
       ),
       body: Column(
+
         children: [
           Padding(
               padding: const EdgeInsets.fromLTRB(80, 20, 80, 0),
               //child: Expanded(child: currentServiceSelection()),
               child: RaisedButton(
                 textColor: Colors.white,
+                padding: EdgeInsets.fromLTRB(80.0, 10.0, 80.0, 10.0),
                 color: kCountryListPageAppBarBackground,
                 child: Text("All Services",),
                 onPressed: () {},
@@ -248,7 +252,7 @@ class BottomRowCell extends StatelessWidget {
               labelText,
               style: TextStyle(
                 color: labelValue == '---' ? Colors.grey : Colors.white,
-                fontFamily: 'Proxima Nova',
+                fontFamily: 'Helvetica',
                 fontSize: 18.0,
                 fontWeight: FontWeight.w600,
               ),
@@ -257,7 +261,7 @@ class BottomRowCell extends StatelessWidget {
               labelValue,
               style: TextStyle(
                 color: labelValue == '---' ? Colors.grey : Colors.white,
-                fontFamily: 'Proxima Nova',
+                fontFamily: 'Helvetica',
                 fontSize: 18.0,
                 fontWeight: FontWeight.w600,
               ),
