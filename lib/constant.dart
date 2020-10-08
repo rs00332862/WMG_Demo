@@ -10,6 +10,7 @@ const kMainBackgroundColor = Color(0xFF000116);
 const kBlueBoldText = Color(0xFF0068A7);
 const kGrayBoldText = Color(0xFF8E8F9A);
 
+
 const kcheckBoxBlueColor = Color(0xff007eff);
 const kcheckBoxAccentBlueColor = Color(0xff66b2ff);
 
