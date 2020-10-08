@@ -57,9 +57,19 @@ flutter:
     - images/Rsu.png
     - images/UK.png
     - images/USA.png
+    - images/info.png
 
 
-  fonts:
-    - family: ProximaNova
-      fonts:
-        - asset: assets/Font/ProximaNova-Regular.otf
+#  fonts:
+#    - family: Proxima Nova
+#      fonts:
+#        - asset: assets/font/ProximaNova-Regular.otf
+#        - asset: assets/font/ProximaNova-Bold.otf
+#    - family: Helvetica
+#      fonts:
+#        - asset: assets/font/Helvetica.ttf
+#        - asset: assets/font/Helvetica-Bold.ttf
+#    - family: Roboto
+#      fonts:
+#        - asset: assets/font/Roboto-Regular.ttf
+#        - asset: assets/font/Roboto-Bold.ttf

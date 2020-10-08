@@ -23,6 +23,10 @@ const kTextColorGrey = Color(0xFFBBBBBB);
 const kCountryNameTextColorBlack = Color(0xFF111018);
 const kCountrySearchHintColorGrey = Color(0xFF828282);
 const kCountryListPageTitleColoreWhite = Color(0xFFFFFFFF);
+const kCountryListPageBackgroundGrey = Color(0xFFF2F2F2);
+const kCountryListPageAppBarBackground = Color(0xFF000116);
+const kCountryListPageUnselectedTabBackground = Color(0xFF292B3A);
+
 
 const kBorderRadius = 10.0;
 const kJobItemBorderRadius = 5.0;

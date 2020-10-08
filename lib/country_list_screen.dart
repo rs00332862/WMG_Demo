@@ -7,21 +7,21 @@ class CountryListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-          //fontFamily: 'OpenSans',
           fontFamily: 'Helvetica',
-          primaryColor: kGreyBackground,
+          primaryColor: kCountryListPageBackgroundGrey,
           accentColor: kAccentColor,
           scaffoldBackgroundColor: kGreyBackground,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Scaffold(
             appBar: AppBar(
-              title: Text('CHART PERFORMANCE', style: kCountryListPageTitleStyleWhite(),),
+              title: Text('TRACK STREAMING', style: kCountryListPageTitleStyleWhite(),),
               centerTitle: true,
-              backgroundColor: kMainBackgroundColor,
+              backgroundColor: kCountryListPageAppBarBackground,
               leading: Image(image: AssetImage('images/wmg.png')),
               actions: [
-                IconButton(icon: Icon(Icons.info, color: Colors.white,))
+                IconButton(
+                  icon: Image(image: AssetImage('images/info.png')), onPressed: null,)
               ],
             ),
             body: getListViewPage()
@@ -39,7 +39,7 @@ class CountryListScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              width: 10.0,
+              width: 20.0,
             ),
             Text('Popular Countries', style: kCountryNameTextStyleBlack(),),
             SizedBox(
@@ -47,7 +47,7 @@ class CountryListScreen extends StatelessWidget {
             ),
             RaisedButton(
               textColor: Colors.white,
-              color: Colors.black,
+              color: kCountryListPageAppBarBackground,
               child: Text("Last Week"),
               onPressed: () {},
               shape: new RoundedRectangleBorder(
@@ -102,9 +102,6 @@ class ListSearchState extends State<ListSearch> {
     ),
   ];
 
-  // Copy Main List into New List.
-  //List<String> newDataList = List.from(mainDataList);
-
   List<Country> newDataList = List.from(countryList);
 
   onItemChanged(String value) {
@@ -143,6 +140,8 @@ class ListSearchState extends State<ListSearch> {
             child: TextField(
               controller: _textController,
               decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  border: InputBorder.none,
                   hintText: 'Search by Country',
                   hintStyle: kCountrySearchHintStyleGrey()
               ),
@@ -151,17 +150,7 @@ class ListSearchState extends State<ListSearch> {
           ),
           Divider(),
           Expanded(
-              child: /*ListView(
-              padding: EdgeInsets.all(12.0),
-              children: newDataList.map((data) {
-                return ListTile(
-                  contentPadding: EdgeInsets.all(10.0),
-                  leading: getFlagImage(data.code),
-                  title: Text(data.name, style: kCountryNameTextStyleBlack(),),
-                  onTap: ()=> print(data),);
-              }).toList(),
-            ),*/
-              ListView.separated(
+              child: ListView.separated(
                 itemCount: newDataList.length,
                 itemBuilder: (context, index) {
                   return ListTile(

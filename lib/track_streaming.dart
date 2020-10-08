@@ -120,18 +120,24 @@ class _TrackStreamingState extends State<TrackStreaming> {
         ),
         actions: [
           IconButton(
-              icon: const Icon(
-                Icons.info,
-                color: Colors.white,
-              ),
-              onPressed: null)
+            icon: Image(image: AssetImage('images/info.png')), onPressed: null,)
         ],
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(80, 20, 80, 0),
-            child: Expanded(child: currentServiceSelection()),
+              padding: const EdgeInsets.fromLTRB(80, 20, 80, 0),
+              //child: Expanded(child: currentServiceSelection()),
+              child: RaisedButton(
+                textColor: Colors.white,
+                color: kCountryListPageAppBarBackground,
+                child: Text("All Services",),
+                onPressed: () {},
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0),
+                  side: BorderSide(color: Colors.white)
+                )
+              ),
           ),
           SizedBox(
             height: 10.0,
@@ -139,7 +145,10 @@ class _TrackStreamingState extends State<TrackStreaming> {
           SafeArea(
             bottom: false,
             child: SizedBox(
-              height: MediaQuery.of(context).size.height - 194 - 95,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height - 194 - 95,
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
@@ -166,10 +175,10 @@ class _TrackStreamingState extends State<TrackStreaming> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                      child: Text(
-                        'Stream + Sources 9/25 - 10/1',
-                        style: grayBoldTextStyle(),
-                      ),
+                    child: Text(
+                      'Stream + Sources 9/25 - 10/1',
+                      style: grayBoldTextStyle(),
+                    ),
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -195,9 +204,6 @@ class _TrackStreamingState extends State<TrackStreaming> {
       ),
     );
   }
-
-
-
 
 
   Widget currentServiceSelection() {
@@ -226,7 +232,8 @@ class BottomRowCell extends StatelessWidget {
 
   final String labelText;
   final String labelValue;
-  BottomRowCell({@required this.labelText,@required this.labelValue});
+
+  BottomRowCell({@required this.labelText, @required this.labelValue});
 
   @override
   Widget build(BuildContext context) {
@@ -240,8 +247,8 @@ class BottomRowCell extends StatelessWidget {
             Text(
               labelText,
               style: TextStyle(
-                color: labelValue == '---'? Colors.grey : Colors.white,
-                fontFamily: 'ProximaNova-Regular',
+                color: labelValue == '---' ? Colors.grey : Colors.white,
+                fontFamily: 'Proxima Nova',
                 fontSize: 18.0,
                 fontWeight: FontWeight.w600,
               ),
@@ -249,8 +256,8 @@ class BottomRowCell extends StatelessWidget {
             Text(
               labelValue,
               style: TextStyle(
-                color: labelValue == '---'? Colors.grey : Colors.white,
-                fontFamily: 'ProximaNova-Regular',
+                color: labelValue == '---' ? Colors.grey : Colors.white,
+                fontFamily: 'Proxima Nova',
                 fontSize: 18.0,
                 fontWeight: FontWeight.w600,
               ),
