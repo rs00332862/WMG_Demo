@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'country.dart';
 import 'track_streaming.dart';
 //import 'package:page_transition/page_transition.dart';
 import 'country_list_screen.dart';
@@ -24,9 +25,9 @@ class _TabBarContainerState extends State<TabBarContainer>
     super.initState();
     //_pageController = PageController();
     listScreens = [
-      CountryListScreen(resetIndex: (){
+      CountryListScreen(resetIndex: (Country country){
         setState(() {
-          tabIndex = -1;
+          tabIndex = 1;
         });
         print('tabIndex called');
       },),

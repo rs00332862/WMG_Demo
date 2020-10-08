@@ -61,12 +61,12 @@ flutter:
     - images/testing_dots_Bg.png
 
 
-#  fonts:
-#    - family: Helvetica
-#      fonts:
-#        - asset: assets/font/Helvetica.ttf
-#        - asset: assets/font/Helvetica-Bold.ttf
-#    - family: Roboto
-#      fonts:
-#        - asset: assets/font/Roboto-Regular.ttf
-#        - asset: assets/font/Roboto-Bold.ttf
+  fonts:
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/Helvetica.ttf
+        - asset: assets/fonts/Helvetica-Bold.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf

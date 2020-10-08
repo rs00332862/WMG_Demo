@@ -38,7 +38,7 @@ const kCompleteProfileMessage =
 
 TextStyle kBlueBoldTextStyle() {
   return TextStyle(
-    fontFamily: 'Roboto',
+    fontFamily: 'Helvetica',
     color: kBlueBoldText,
     fontSize: 44.0,
     fontWeight: FontWeight.w600,
@@ -80,16 +80,16 @@ TextStyle kCountrySearchHintStyleGrey() {
     fontWeight: FontWeight.w500,
   );
 }
-TextStyle kH2FontTextStyleWhite() {
+/*TextStyle kH2FontTextStyleWhite() {
   return TextStyle(
     color: kTextColorWhite,
     fontFamily: 'Montserrat',
     fontSize: 18,
     fontWeight: FontWeight.w500,
   );
-}
+}*/
 
-TextStyle kNormalFontTextStyleBlack() {
+/*TextStyle kNormalFontTextStyleBlack() {
   return TextStyle(
     color: kTextColorBlack,
     fontFamily: 'Montserrat',
@@ -251,6 +251,6 @@ TextStyle kButtonTextStyle() {
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
-}
+}*/
 
 

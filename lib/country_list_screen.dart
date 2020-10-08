@@ -5,7 +5,7 @@ import 'package:page_transition/page_transition.dart';
 import 'track_streaming.dart';
 
 class CountryListScreen extends StatelessWidget {
-  final Function resetIndex;
+  final Function(Country country) resetIndex;
   CountryListScreen({@required this.resetIndex});
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class CountryListScreen extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 40.0),
+          padding: const EdgeInsets.only(bottom: 20.0),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -62,9 +62,10 @@ class CountryListScreen extends StatelessWidget {
         ),
         Expanded(
           child: ListSearch(
-            resetIndex: (){
+            /*resetIndex: (){
               print("ListSearch function called");
-            },
+            },*/
+            resetIndex: resetIndex,
           ),
         )
       ],
@@ -73,7 +74,7 @@ class CountryListScreen extends StatelessWidget {
 }
 
 class ListSearch extends StatefulWidget {
-  final Function resetIndex;
+  final Function(Country country) resetIndex;
   ListSearch({@required this.resetIndex});
   ListSearchState createState() => ListSearchState();
 }
@@ -85,7 +86,6 @@ class ListSearchState extends State<ListSearch> {
   buttonTapped ()async{
     print('Button Tapped');
     await Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
-    widget.resetIndex();
   }
 
   static List<Country> countryList = [
@@ -179,7 +179,8 @@ class ListSearchState extends State<ListSearch> {
                       setState(() {
                         itemSelected = index;
                       });
-                      buttonTapped();
+                      //buttonTapped();
+                      widget.resetIndex(newDataList[index]);
                     },
                   );
                 },

@@ -152,62 +152,60 @@ class _TrackStreamingState extends State<TrackStreaming> {
           SizedBox(
             height: 10.0,
           ),
-          SafeArea(
-            bottom: false,
-            child: SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height - 194 - 95,
-              child: ListView(
-                scrollDirection: Axis.vertical,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      '53,628,306',
-                      style: kBlueBoldTextStyle(),
-                    ),
+          Flexible(
+            /*height: MediaQuery
+                .of(context)
+                .size
+                .height - 194 - 15,*/
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '53,628,306',
+                    style: kBlueBoldTextStyle(),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Stream Release To Date',
-                      style: grayBoldTextStyle(),
-                    ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Stream Release To Date',
+                    style: grayBoldTextStyle(),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      '32,441',
-                      style: kBlueBoldTextStyle(),
-                    ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '32,441',
+                    style: kBlueBoldTextStyle(),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Stream + Sources 9/25 - 10/1',
-                      style: grayBoldTextStyle(),
-                    ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Stream + Sources 9/25 - 10/1',
+                    style: grayBoldTextStyle(),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: StreamCharts(
-                      data: data,
-                    ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: StreamCharts(
+                    data: data,
                   ),
-                  BottomRowCell(labelText: 'Library', labelValue: '16,140'),
-                  BottomRowCell(labelText: 'Radio', labelValue: '13,250'),
-                  BottomRowCell(labelText: 'Playlist', labelValue: '6,140'),
-                  BottomRowCell(labelText: 'Search', labelValue: '5,400'),
-                  BottomRowCell(labelText: 'Other', labelValue: '1,140'),
-                  BottomRowCell(labelText: 'Na', labelValue: '890'),
-                  BottomRowCell(labelText: 'Charts', labelValue: '0'),
-                  BottomRowCell(labelText: 'Flow', labelValue: '10'),
-                  BottomRowCell(labelText: 'Referal', labelValue: '---'),
-                  BottomRowCell(labelText: 'Paid', labelValue: '---'),
-                ],
-              ),
+                ),
+                BottomRowCell(labelText: 'Library', labelValue: '16,140'),
+                BottomRowCell(labelText: 'Radio', labelValue: '13,250'),
+                BottomRowCell(labelText: 'Playlist', labelValue: '6,140'),
+                BottomRowCell(labelText: 'Search', labelValue: '5,400'),
+                BottomRowCell(labelText: 'Other', labelValue: '1,140'),
+                BottomRowCell(labelText: 'Na', labelValue: '890'),
+                BottomRowCell(labelText: 'Charts', labelValue: '0'),
+                BottomRowCell(labelText: 'Flow', labelValue: '10'),
+                BottomRowCell(labelText: 'Referal', labelValue: '---'),
+                BottomRowCell(labelText: 'Paid', labelValue: '---'),
+              ],
             ),
           ),
         ],
