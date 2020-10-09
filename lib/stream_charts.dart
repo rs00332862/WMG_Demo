@@ -18,7 +18,6 @@ class StreamCharts extends StatelessWidget {
         domainFn: (StreamTracker stream, _) => stream.time,
         measureFn: (StreamTracker stream, _) => stream.stream,
         colorFn: (StreamTracker stream, _) => stream.barColor,
-        //colorFn: (_, __) => chart.MaterialPalette.blue.shadeDefault,
       )
     ];
     return Container(
@@ -42,6 +41,7 @@ class StreamCharts extends StatelessWidget {
                   child:chart.TimeSeriesChart(
                     streams,
                     animate: true,
+                    layoutConfig: chart.LayoutConfig(leftMarginSpec: chart.MarginSpec.fixedPixel(0), topMarginSpec: chart.MarginSpec.fixedPixel(0), rightMarginSpec: chart.MarginSpec.fixedPixel(0), bottomMarginSpec: chart.MarginSpec.fixedPixel(0)),
                     // Set the default renderer to a bar renderer.
                     // This can also be one of the custom renderers of the time series chart.
                     defaultRenderer: chart.BarRendererConfig<DateTime>(),
@@ -57,7 +57,7 @@ class StreamCharts extends StatelessWidget {
                       showAxisLine: false,
                       tickFormatterSpec: chart.AutoDateTimeTickFormatterSpec(
                         day: chart.TimeFormatterSpec(
-                          format: 'd', transitionFormat: 'MM/dd'
+                          format: 'MM/dd', transitionFormat: 'MM/dd'
                         )
                       ),
                       renderSpec: chart.SmallTickRendererSpec(
@@ -78,26 +78,3 @@ class StreamCharts extends StatelessWidget {
     );
   }
 }
-/*
-* chart.TimeSeriesChart(
-                streams,
-                animate: true,
-                defaultRenderer: chart.BarRendererConfig<DateTime>(),
-                defaultInteractions: false,
-                behaviors: [new chart.SelectNearest(), new chart.DomainHighlighter()],
-                domainAxis: chart.OrdinalAxisSpec(
-                  showAxisLine: false,
-                  renderSpec: chart.SmallTickRendererSpec(
-                      minimumPaddingBetweenLabelsPx: 0,
-
-                      labelStyle: chart.TextStyleSpec(
-                        color: chart.MaterialPalette.white,
-                        fontSize: 14,
-                      )
-                  ),
-                ),
-                primaryMeasureAxis: chart.NumericAxisSpec(renderSpec: chart.NoneRenderSpec()),
-
-              ),
-*
-* */

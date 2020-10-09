@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'country.dart';
 import 'track_streaming.dart';
-//import 'package:page_transition/page_transition.dart';
 import 'country_list_screen.dart';
 import 'constant.dart';
 
@@ -53,29 +52,6 @@ class _TabBarContainerState extends State<TabBarContainer>
       home: Scaffold(
         body: listScreens[tabIndex],
         bottomNavigationBar: BottomNavigationView(),
-
-//        bottomNavigationBar: BottomNavigationBar(
-//            selectedItemColor: Colors.white,
-//            unselectedItemColor: Colors.grey[400],
-//            backgroundColor: Color(0xFF292B3A),
-//            currentIndex: tabIndex,
-//            onTap: (int index) {
-//              setState(() {
-//                tabIndex = index;
-//              });
-//            },
-//            items: [
-//              BottomNavigationBarItem(
-//                icon: Image.asset('images/globe.png'),
-//                title: Text('All'),
-//
-//              ),
-//              BottomNavigationBarItem(
-//                icon: Icon(Icons.report_problem),
-//                title: Text('Tab2'),
-//              ),
-//            ]),
-//        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }
@@ -96,14 +72,6 @@ class _TabBarContainerState extends State<TabBarContainer>
                   onPressed: () {
                     setState(() {
                       tabIndex = 0;
-                      //_pageController.animateToPage(0, duration: Duration(milliseconds: 500), curve: Curves.easeOut);
-                      //Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: CountryListScreen()));
-
-//                      Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                            builder: (context) => CountryListScreen(), fullscreenDialog: false),
-//                      );
                     });
                   },
                   child: Row(

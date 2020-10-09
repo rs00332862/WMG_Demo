@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'stream_tracker.dart';
 import 'package:charts_flutter/flutter.dart' as chart;
 import 'stream_charts.dart';
-import 'styling.dart';
 import 'constant.dart';
 
 class TrackStreaming extends StatefulWidget {
@@ -276,27 +275,6 @@ class _TrackStreamingState extends State<TrackStreaming> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget currentServiceSelection() {
-    return DropdownButtonFormField<String>(
-      items: <String>['One', 'Two', 'Free', 'Four']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-      hint: Text("All Services"),
-      value: currentServiceValue,
-      autovalidate: true,
-      decoration: Styling.boxStyling,
-      onChanged: (String newValue) {
-        setState(() {
-          currentServiceValue = newValue;
-        });
-      },
     );
   }
 }
