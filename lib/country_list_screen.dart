@@ -7,8 +7,13 @@ import 'track_streaming.dart';
 class CountryListScreen extends StatelessWidget {
   final Function(Country country) resetIndex;
   CountryListScreen({@required this.resetIndex});
+  BuildContext ctx;
   @override
   Widget build(BuildContext context) {
+    return getMaterialApp();
+  }
+
+  Widget getMaterialApp() {
     return MaterialApp(
         theme: ThemeData(
           fontFamily: 'Helvetica',
@@ -88,6 +93,10 @@ class ListSearchState extends State<ListSearch> {
     await Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
   }
 
+  Future<bool> loadMainScreen () async{
+    return await Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
+  }
+
   static List<Country> countryList = [
     Country(
       name: "All Countries",
@@ -148,6 +157,18 @@ class ListSearchState extends State<ListSearch> {
   }
 
   Widget build(BuildContext context) {
+    //return getCountryListPageView();
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: getCountryListPageView(),
+    );
+  }
+
+  Future<bool> _onBackPressed() {
+    return widget.resetIndex(new Country(name: 'All Countries', code: 'zz'),);
+  }
+
+  Widget getCountryListPageView() {
     return Scaffold(
       body: Column(
         children: <Widget>[
