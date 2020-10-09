@@ -67,9 +67,6 @@ class CountryListScreen extends StatelessWidget {
         ),
         Expanded(
           child: ListSearch(
-            /*resetIndex: (){
-              print("ListSearch function called");
-            },*/
             resetIndex: resetIndex,
           ),
         )
@@ -85,13 +82,13 @@ class ListSearch extends StatefulWidget {
 }
 
 class ListSearchState extends State<ListSearch> {
-  int itemSelected = -1;
+  static int itemSelected = 0;
   TextEditingController _textController = TextEditingController();
 
-  buttonTapped ()async{
+  /*buttonTapped ()async{
     print('Button Tapped');
     await Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
-  }
+  }*/
 
   Future<bool> loadMainScreen () async{
     return await Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: TrackStreaming()));
@@ -157,7 +154,6 @@ class ListSearchState extends State<ListSearch> {
   }
 
   Widget build(BuildContext context) {
-    //return getCountryListPageView();
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: getCountryListPageView(),
@@ -165,7 +161,7 @@ class ListSearchState extends State<ListSearch> {
   }
 
   Future<bool> _onBackPressed() {
-    return widget.resetIndex(new Country(name: 'All Countries', code: 'zz'),);
+    return widget.resetIndex(newDataList[itemSelected]);
   }
 
   Widget getCountryListPageView() {

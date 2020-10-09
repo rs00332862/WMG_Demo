@@ -59,6 +59,7 @@ flutter:
     - images/USA.png
     - images/info.png
     - images/testing_dots_Bg.png
+    - images/drop-down.png
 
 
   fonts:

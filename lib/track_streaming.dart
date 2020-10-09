@@ -172,32 +172,47 @@ class _TrackStreamingState extends State<TrackStreaming> {
         ),
         actions: [
           IconButton(
-            icon: Image(image: AssetImage('images/info.png')), onPressed: null,)
+            icon: Image(image: AssetImage('images/info.png')),
+            onPressed: null,
+          )
         ],
       ),
       body: Column(
-
         children: [
           Padding(
-              padding: const EdgeInsets.fromLTRB(80, 10, 80, 0),
-              //child: Expanded(child: currentServiceSelection()),
-              child: RaisedButton(
-                textColor: Colors.white,
-                padding: EdgeInsets.fromLTRB(80.0, 10.0, 80.0, 10.0),
-                color: kCountryListPageAppBarBackground,
-                child: Text(
-                  "All Services",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                onPressed: () {},
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                  side: BorderSide(color: Colors.white)
+            padding: const EdgeInsets.fromLTRB(80, 10, 80, 0),
+            child: Container(
+                //width: 210,
+                child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.white)),
+                    onPressed: () {},
+                    textColor: Colors.white,
+                    color: Colors.transparent,
+                    splashColor: kCountryListPageBackgroundGrey,
+                    padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    child: Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              color: Colors.transparent,
+                              padding: EdgeInsets.fromLTRB(10, 4, 4, 4),
+                              child: Text('All Services',
+                                  style: kPageBodyTextBoldWhite()),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
+                              child: Image.asset('images/drop-down.png'),
+                            ),
+                          ],
+                        )
+                    )
                 )
-              ),
+            ),
           ),
           SizedBox(
             height: 10.0,
@@ -271,7 +286,6 @@ class _TrackStreamingState extends State<TrackStreaming> {
     );
   }
 
-
   Widget currentServiceSelection() {
     return DropdownButtonFormField<String>(
       items: <String>['One', 'Two', 'Free', 'Four']
@@ -295,7 +309,6 @@ class _TrackStreamingState extends State<TrackStreaming> {
 }
 
 class BottomRowCell extends StatelessWidget {
-
   final String labelText;
   final String labelValue;
 

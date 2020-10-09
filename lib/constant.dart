@@ -23,7 +23,7 @@ const kTextColorBlue = Color(0xFF007EFF);
 const kTextColorGrey = Color(0xFFBBBBBB);
 const kCountryNameTextColorBlack = Color(0xFF111018);
 const kCountrySearchHintColorGrey = Color(0xFF828282);
-const kCountryListPageTitleColoreWhite = Color(0xFFFFFFFF);
+const kCountryListPageTitleColorWhite = Color(0xFFFFFFFF);
 const kCountryListPageBackgroundGrey = Color(0xFFF2F2F2);
 const kCountryListPageAppBarBackground = Color(0xFF000116);
 const kCountryListPageUnselectedTabBackground = Color(0xFF292B3A);
@@ -56,7 +56,7 @@ TextStyle grayBoldTextStyle() {
 
 TextStyle kCountryListPageTitleStyleWhite() {
   return TextStyle(
-    color: kCountryListPageTitleColoreWhite,
+    color: kCountryListPageTitleColorWhite,
     fontFamily: 'Helvetica',
     fontSize: 16,
     fontWeight: FontWeight.w700,
@@ -69,6 +69,15 @@ TextStyle kCountryNameTextStyleBlack() {
     fontFamily: 'Helvetica',
     fontSize: 14,
     fontWeight: FontWeight.w500,
+  );
+}
+
+TextStyle kPageBodyTextBoldWhite() {
+  return TextStyle(
+    color: Colors.white,
+    fontFamily: 'Helvetica',
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
   );
 }
 
