@@ -7,7 +7,7 @@ import 'track_streaming.dart';
 class CountryListScreen extends StatelessWidget {
   final Function(Country country) resetIndex;
   CountryListScreen({@required this.resetIndex});
-  BuildContext ctx;
+  
   @override
   Widget build(BuildContext context) {
     return getMaterialApp();
