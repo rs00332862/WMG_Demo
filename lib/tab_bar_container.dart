@@ -13,7 +13,8 @@ class TabBarContainer extends StatefulWidget {
 class _TabBarContainerState extends State<TabBarContainer>
     with SingleTickerProviderStateMixin {
   //AnimationController _controller;
-
+  String countyImageCode = 'globe';
+  String countyNameCode = 'All';
   int tabIndex = 1;
   //PageController _pageController;
 
@@ -24,12 +25,19 @@ class _TabBarContainerState extends State<TabBarContainer>
     //_controller = AnimationController(vsync: this);
     super.initState();
     //_pageController = PageController();
+
     listScreens = [
       CountryListScreen(resetIndex: (Country country){
         setState(() {
           tabIndex = 1;
         });
-        print('tabIndex called');
+        if (country.name == 'All Countries') {
+          countyImageCode = 'globe';
+          countyNameCode = 'All';
+        } else {
+          countyImageCode = country.code;
+          countyNameCode = country.name;
+        }
       },),
       TrackStreaming(),
     ];
@@ -100,9 +108,9 @@ class _TabBarContainerState extends State<TabBarContainer>
                   },
                   child: Row(
                     children: [
-                      Image.asset('images/globe.png'),
+                      Image.asset('images/$countyImageCode.png'),
                       SizedBox(width: 10,),
-                      Text('All'),
+                      Text(countyNameCode),
                     ],
                   )
               ),

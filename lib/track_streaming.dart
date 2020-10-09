@@ -15,78 +15,128 @@ String currentServiceValue;
 class _TrackStreamingState extends State<TrackStreaming> {
   final List<StreamTracker> data = [
     StreamTracker(
-      day: "9",
-      stream: 2000,
+      time: DateTime(2020, 9, 15),
+      stream: 80,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "10",
-      stream: 1800,
+      time: DateTime(2020, 9, 16),
+      stream: 80,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "11",
-      stream: 2100,
+      time: DateTime(2020, 9, 17),
+      stream: 80,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "12",
-      stream: 2300,
+      time: DateTime(2020, 9, 18),
+      stream: 90,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "13",
-      stream: 900,
+      time: DateTime(2020, 9, 19),
+      stream: 100,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "14",
-      stream: 500,
+      time: DateTime(2020, 9, 20),
+      stream: 110,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "15",
-      stream: 900,
+      time: DateTime(2020, 9, 21),
+      stream: 120,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "16",
-      stream: 280,
+      time: DateTime(2020, 9, 22),
+      stream: 130,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "17",
-      stream: 180,
+      time: DateTime(2020, 9, 23),
+      stream: 140,
       barColor: chart.ColorUtil.fromDartColor(Colors.blue),
     ),
     StreamTracker(
-      day: "18",
-      stream: 200,
+      time: DateTime(2020, 9, 24),
+      stream: 130,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 9, 25),
+      stream: 110,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 9, 26),
+      stream: 120,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 9, 27),
+      stream: 120,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 9, 28),
+      stream: 110,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 9, 29),
+      stream: 112,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 9, 30),
+      stream: 90,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 10, 1),
+      stream: 70,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 10, 2),
+      stream: 80,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 10, 3),
+      stream: 90,
+      barColor: chart.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 10, 4),
+      stream: 100,
       barColor: chart.ColorUtil.fromDartColor(Colors.blueAccent),
     ),
     StreamTracker(
-      day: "19",
-      stream: 800,
+      time: DateTime(2020, 10, 5),
+      stream: 110,
       barColor: chart.ColorUtil.fromDartColor(kBlueBoldText),
     ),
     StreamTracker(
-      day: "20",
-      stream: 400,
+      time: DateTime(2020, 10, 6),
+      stream: 120,
       barColor: chart.ColorUtil.fromDartColor(kBlueBoldText),
     ),
     StreamTracker(
-      day: "21",
-      stream: 25,
-      barColor: chart.ColorUtil.fromDartColor(Colors.grey),
-    ),
-    StreamTracker(
-      day: "22",
-      stream: 35,
-      barColor: chart.ColorUtil.fromDartColor(Colors.grey),
-    ),
-    StreamTracker(
-      day: "23",
+      time: DateTime(2020, 10, 7),
       stream: 20,
+      barColor: chart.ColorUtil.fromDartColor(Colors.grey),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 10, 8),
+      stream: 15,
+      barColor: chart.ColorUtil.fromDartColor(Colors.grey),
+    ),
+    StreamTracker(
+      time: DateTime(2020, 10, 9),
+      stream: 10,
       barColor: chart.ColorUtil.fromDartColor(Colors.grey),
     ),
   ];
@@ -153,10 +203,6 @@ class _TrackStreamingState extends State<TrackStreaming> {
             height: 10.0,
           ),
           Flexible(
-            /*height: MediaQuery
-                .of(context)
-                .size
-                .height - 194 - 15,*/
             child: ListView(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
@@ -168,12 +214,18 @@ class _TrackStreamingState extends State<TrackStreaming> {
                     style: kBlueBoldTextStyle(),
                   ),
                 ),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Container(
                   alignment: Alignment.center,
                   child: Text(
                     'Stream Release To Date',
                     style: grayBoldTextStyle(),
                   ),
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
                 Container(
                   alignment: Alignment.center,
@@ -182,12 +234,18 @@ class _TrackStreamingState extends State<TrackStreaming> {
                     style: kBlueBoldTextStyle(),
                   ),
                 ),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Container(
                   alignment: Alignment.center,
                   child: Text(
                     'Stream + Sources 9/25 - 10/1',
                     style: grayBoldTextStyle(),
                   ),
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
                 Container(
                   alignment: Alignment.center,

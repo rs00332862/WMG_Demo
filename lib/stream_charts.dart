@@ -11,13 +11,14 @@ class StreamCharts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    List<chart.Series<StreamTracker, String>> streams = [
+    List<chart.Series<StreamTracker, DateTime>> streams = [
       chart.Series(
-        id: "Streams",
+        id: "Sales",
         data: data,
-        domainFn: (StreamTracker stream, _) => stream.day,
+        domainFn: (StreamTracker stream, _) => stream.time,
         measureFn: (StreamTracker stream, _) => stream.stream,
         colorFn: (StreamTracker stream, _) => stream.barColor,
+        //colorFn: (_, __) => chart.MaterialPalette.blue.shadeDefault,
       )
     ];
     return Container(
@@ -37,25 +38,39 @@ class StreamCharts extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Expanded(child:
-              chart.BarChart(
-                streams,
-                animate: true,
-                domainAxis: chart.OrdinalAxisSpec(
-                  showAxisLine: false,
-                  renderSpec: chart.SmallTickRendererSpec(
-                      minimumPaddingBetweenLabelsPx: 0,
-
-                      labelStyle: chart.TextStyleSpec(
-                        color: chart.MaterialPalette.white,
-                        fontSize: 15,
-                      )
+              Expanded(
+                  child:chart.TimeSeriesChart(
+                    streams,
+                    animate: true,
+                    // Set the default renderer to a bar renderer.
+                    // This can also be one of the custom renderers of the time series chart.
+                    defaultRenderer: chart.BarRendererConfig<DateTime>(),
+                    // It is recommended that default interactions be turned off if using bar
+                    // renderer, because the line point highlighter is the default for time
+                    // series chart.
+                    defaultInteractions: false,
+                    // If default interactions were removed, optionally add select nearest
+                    // and the domain highlighter that are typical for bar charts.
+                    behaviors: [chart.SelectNearest(), chart.DomainHighlighter()],
+                    domainAxis: chart.DateTimeAxisSpec(
+                      tickProviderSpec: chart.DayTickProviderSpec(increments: [7]),
+                      showAxisLine: false,
+                      tickFormatterSpec: chart.AutoDateTimeTickFormatterSpec(
+                        day: chart.TimeFormatterSpec(
+                          format: 'd', transitionFormat: 'MM/dd'
+                        )
+                      ),
+                      renderSpec: chart.SmallTickRendererSpec(
+                          minimumPaddingBetweenLabelsPx: 0,
+                          labelStyle: chart.TextStyleSpec(
+                            color: chart.MaterialPalette.white,
+                            fontSize: 15,
+                          )
+                      ),
+                    ),
+                    primaryMeasureAxis: chart.NumericAxisSpec(renderSpec: chart.NoneRenderSpec()),
                   ),
-                ),
-                primaryMeasureAxis: chart.NumericAxisSpec(renderSpec: chart.NoneRenderSpec()),
-
               ),
-              )
             ],
           ),
         ),
@@ -63,3 +78,26 @@ class StreamCharts extends StatelessWidget {
     );
   }
 }
+/*
+* chart.TimeSeriesChart(
+                streams,
+                animate: true,
+                defaultRenderer: chart.BarRendererConfig<DateTime>(),
+                defaultInteractions: false,
+                behaviors: [new chart.SelectNearest(), new chart.DomainHighlighter()],
+                domainAxis: chart.OrdinalAxisSpec(
+                  showAxisLine: false,
+                  renderSpec: chart.SmallTickRendererSpec(
+                      minimumPaddingBetweenLabelsPx: 0,
+
+                      labelStyle: chart.TextStyleSpec(
+                        color: chart.MaterialPalette.white,
+                        fontSize: 14,
+                      )
+                  ),
+                ),
+                primaryMeasureAxis: chart.NumericAxisSpec(renderSpec: chart.NoneRenderSpec()),
+
+              ),
+*
+* */

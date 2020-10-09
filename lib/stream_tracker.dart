@@ -1,10 +1,9 @@
 import 'package:charts_flutter/flutter.dart' as chart;
-import 'package:flutter/foundation.dart';
 
 class StreamTracker{
-  final String day;
+  final DateTime time;
   final int stream;
   final chart.Color barColor;
 
-  StreamTracker({this.day,this.stream,this.barColor});
+  StreamTracker({this.time,this.stream,this.barColor});
 }

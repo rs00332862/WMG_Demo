@@ -38,7 +38,7 @@ const kCompleteProfileMessage =
 
 TextStyle kBlueBoldTextStyle() {
   return TextStyle(
-    fontFamily: 'Helvetica',
+    fontFamily: 'Roboto',
     color: kBlueBoldText,
     fontSize: 44.0,
     fontWeight: FontWeight.w600,
@@ -47,7 +47,7 @@ TextStyle kBlueBoldTextStyle() {
 
 TextStyle grayBoldTextStyle() {
   return TextStyle(
-    fontFamily: 'Helvetica',
+    fontFamily: 'Roboto',
     color: kGrayBoldText,
     fontSize: 18.0,
     fontWeight: FontWeight.w600,

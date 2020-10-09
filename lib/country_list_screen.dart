@@ -201,6 +201,7 @@ class ListSearchState extends State<ListSearch> {
                         itemSelected = index;
                       });
                       //buttonTapped();
+                      print(newDataList[index].code);
                       widget.resetIndex(newDataList[index]);
                     },
                   );
