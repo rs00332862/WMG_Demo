@@ -182,10 +182,9 @@ class _TrackStreamingState extends State<TrackStreaming> {
           Padding(
             padding: const EdgeInsets.fromLTRB(80, 10, 80, 0),
             child: Container(
-                //width: 210,
                 child: RaisedButton(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
+                        borderRadius: BorderRadius.circular(30.0),
                         side: BorderSide(color: Colors.white)),
                     onPressed: () {},
                     textColor: Colors.white,
@@ -193,23 +192,17 @@ class _TrackStreamingState extends State<TrackStreaming> {
                     splashColor: kCountryListPageBackgroundGrey,
                     padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
                     child: Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              color: Colors.transparent,
-                              padding: EdgeInsets.fromLTRB(10, 4, 4, 4),
-                              child: Text('All Services',
-                                  style: kPageBodyTextBoldWhite()),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
-                              child: Image.asset('images/drop-down.png'),
-                            ),
-                          ],
-                        )
+                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                      child: TextField(
+                        enabled: false,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                            suffixIcon: Image.asset('images/drop-down.png'),
+                            border: InputBorder.none,
+                            hintText: 'All Services',
+                            enabled: false,
+                            hintStyle: kPageBodyTextBoldWhite()),
+                      ),
                     )
                 )
             ),
